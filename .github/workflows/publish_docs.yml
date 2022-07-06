@@ -1,7 +1,8 @@
 name: Publish Docs
 
 permissions:
-  idToken: write
+  id-token: write
+  pages: write
 
 on:
   push:
