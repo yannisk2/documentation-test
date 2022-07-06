@@ -20,9 +20,11 @@ jobs:
         python -m pip install --upgrade pip
         cd docs
         pip install -r requirements.txt
+    - name: Show contents of working dir
+      run: |
+        ls -la $PWD
     - name: Build sphinx documentation
       run: |
-        pwd
         make html
         cd _build/html
         touch .nojekyll
