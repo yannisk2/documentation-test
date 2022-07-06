@@ -21,17 +21,18 @@ jobs:
         cd docs
         pip install -r requirements.txt
     - name: Show contents of working dir
+      working-directory: ./docs
       run: |
         ls -la $PWD
     - name: Build sphinx documentation
+      working-directory: ./docs
       run: |
         make html
         cd _build/html
         touch .nojekyll
     - name: Create documentation artifact
       run: |
-        cd ..
-        tar -cvf docs_build.tar html
+        tar -cvf docs_build.tar _build/html
     - name: 'Upload artifact'
       uses: actions/upload-artifact@v3
       with:
